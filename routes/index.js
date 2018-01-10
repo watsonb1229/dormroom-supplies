@@ -7,4 +7,11 @@ router.get('/', (req, res, next) => {
     return res.render('index');
 });
 
+router.post('/register', (req, res, next) => {
+  request.post({
+      url: config.apiUrl + '/users',
+      form: req.body
+  }).pipe(res)
+})
+
 module.exports = router;
